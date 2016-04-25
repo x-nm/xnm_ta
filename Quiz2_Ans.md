@@ -18,20 +18,23 @@
 15. 第一个匹配位置（1-based），无匹配则返回0； 匹配开始的位置； 匹配的长度
 
 ##二、选择题
-1~5 ACC(AD)A; 
-6~10 ACA(AD)(AC); 
+1~5 ACC(AD)A
 
-11~15 C(BC)ABC;
+6~10 ACA(AD)(AC)
 
-16~20 C(CD)B(CD)(CDE);
+11~15 C(BC)AB
+
+16~20 C(CD)B(CD)(CDE)
 
 ##三、解答题
 1. 略
 2. 略（注意?*.|$与bash通配符的区别）
 3. ATG([ATCG]{3})+T(AA|AG|GA)
 4. 思路：以https://www.ncbi.nlm.nih.gov/genbank/samplerecord/ 中的“CDS             687..3158”为例，先从FEATURES->CDS下提取出CDS序列的起止位点，再从ORIGIN区对应的基因序列中提取出相应的CDS序列。
-* (?<=CDS[\s]*)\d+
-* (?<=CDS[\s]*\d+\.\.)\d+
+
+(?<=CDS[\s]*)\d+
+
+(?<=CDS[\s]*\d+\.\.)\d+
 5. 优点：使用显式命名，引用更为方便，且避免了捕获组的增减对引用的影响；
 缺点：对简单的正则表达式来说会显得冗长；有的语言不支持。
 
@@ -59,6 +62,9 @@ Error parsing input
 q
 ```
 9.略
+
 10.略
+
 11.\b[a-f]{4,6}\b
+
 12.\b.*k\b （注意要求为“最简洁”）
